@@ -10,7 +10,8 @@ router.get('/', async (req, res) => {
     const tags = await Tag.findAll({
       include: {
         model: Product,
-        through: ProductTag
+        through: ProductTag,
+        as: 'tagIds'
       }
       });
 
@@ -31,7 +32,8 @@ router.get('/:id', async (req, res) => {
       },
       include: {
         model: Product,
-        through: ProductTag
+        through: ProductTag,
+        as: 'tagIds'
       }
       });
 
